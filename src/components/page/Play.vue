@@ -187,7 +187,7 @@ export default {
       //获取视频弹幕
       axios({
         method: "get",
-        url: "http://localhost:7763/videos/1",
+        url: "/api/videos/1",
       }).then((resp) => {
         const sortData = resp.data.data.sort(
           (a, b) => a.videoTime - b.videoTime
@@ -241,12 +241,13 @@ export default {
     // });
   // },
   mounted(){
-    axios({
-        method: "get",
-        url: "http://localhost:80/hq-video/client/media/leaderAnger_schoolDiningVersion.m3u8",        
-      }).then((resp)=> {               
-        console.log(resp.data);        
-      });
+    // axios({
+    //     method: "get",
+    //     url: "/api/download/5f6045d1c2f146ec85ea825f9fd80423.m3u8",        
+    //   }).then(()=> {               
+    //     console.log("视频接收成功");          
+    //   });
+    this.source = this.$route.query.source;
   }    
 };
 </script>

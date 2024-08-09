@@ -49,7 +49,7 @@ export default {
     userLogin() {      
       axios({
         method: "post",
-        url: "http://localhost:7763/users/login",
+        url: "/api/users/login",
         data: {
           username: this.form.username,
           password: this.form.password,
@@ -59,9 +59,11 @@ export default {
             console.log("登陆成功!");            
             // console.log(resp.data);                        
             this.$router.push({path: '/index'});//跳转路由到首页
-            //登陆后替换头像
-            const cookies = parseCookies(document.cookie);    
-            checkUserIcon(cookies);
+            //登陆后替换头像（强制刷新一次，以触发cookies遍历）
+            if (location.href.indexOf("#reloaded") == -1) {
+                location.href = location.href + "#reloaded";
+                location.reload();
+            }           
         }else{
             alert(resp.data.data);
         }        

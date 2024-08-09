@@ -5,6 +5,8 @@ import Play from '@/components/page/Play.vue';
 import Login from '@/components/page/Login.vue';
 import Message from '@/components/page/Message.vue';
 import Space from '@/components/page/Space.vue';
+import Upload from '@/components/page/Upload.vue';
+import Video from '@/components/page/Video.vue';
 
 // this.path = '/space'; 
 //this.$router.push({path: '/space'});
@@ -24,11 +26,13 @@ Vue.use(VueRouter)
 const router = new VueRouter({
     routes:[
         {path:'/',redirect:'/index'},
-        {path:'/index',component:Index},
-        {path:'/play',component:Play},
-        {path:'/login',component:Login},
-        {path:'/message',component:Message},
-        {path:'/space',component:Space},
+        {path:'/index',component:Index,name:'Index'},
+        {path:'/play',component:Play,name:'Play'},
+        {path:'/login',component:Login,name:'Login'},
+        {path:'/message',component:Message,name:'Message'},
+        {path:'/space',component:Space,name:'Space'},
+        {path:'/upload',component:Upload,name:'Upload'},
+        {path:'/video',component:Video,name:'Video'},
     ]
 })
 
